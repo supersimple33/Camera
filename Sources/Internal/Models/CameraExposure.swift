@@ -11,7 +11,7 @@
 
 import AVKit
 
-struct CameraExposure {
+struct CameraExposure: Equatable {
     var duration: CMTime = .zero
     var targetBias: Float = 0
     var iso: Float = 0

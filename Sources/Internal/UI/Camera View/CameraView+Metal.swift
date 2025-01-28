@@ -14,7 +14,7 @@ import MetalKit
 import AVKit
 
 @MainActor class CameraMetalView: MTKView {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
     private(set) var ciContext: CIContext!
     private(set) var commandQueue: MTLCommandQueue!
     private(set) var currentFrame: CIImage?
@@ -39,7 +39,7 @@ private extension CameraMetalView {
         self.commandQueue = metalDevice.makeCommandQueue()
     }
     func configureMetalView(metalDevice: MTLDevice) {
-        self.parent.cameraView.alpha = 0
+        self.parent?.cameraView.alpha = 0
 
         self.delegate = self
         self.device = metalDevice
@@ -60,7 +60,7 @@ private extension CameraMetalView {
 // MARK: Camera Entrance
 extension CameraMetalView {
     func performCameraEntranceAnimation() { UIView.animate(withDuration: 0.33) { [self] in
-        parent.cameraView.alpha = 1
+        parent?.cameraView.alpha = 1
     }}
 }
 
@@ -69,7 +69,7 @@ extension CameraMetalView {
     func performImageCaptureAnimation() {
         let blackMatte = createBlackMatte()
 
-        parent.cameraView.addSubview(blackMatte)
+        parent?.cameraView.addSubview(blackMatte)
         animateBlackMatte(blackMatte)
     }
 }
@@ -93,6 +93,7 @@ private extension CameraMetalView {
 // MARK: Camera Flip
 extension CameraMetalView {
     func beginCameraFlipAnimation() async {
+        guard parent != nil else { return }
         let snapshot = createSnapshot()
         isAnimating = true
         insertBlurView(snapshot)
@@ -101,6 +102,7 @@ extension CameraMetalView {
         await Task.sleep(seconds: 0.01)
     }
     func finishCameraFlipAnimation() async {
+        guard let parent else { return }
         guard let blurView = parent.cameraView.viewWithTag(.blurViewTag) else { return }
 
         await Task.sleep(seconds: 0.44)
@@ -138,6 +140,7 @@ private extension CameraMetalView {
 // MARK: Camera Focus
 extension CameraMetalView {
     func performCameraFocusAnimation(touchPoint: CGPoint) {
+        guard parent != nil else { return }
         removeExistingFocusIndicatorAnimations()
 
         let focusIndicator = focusIndicator.create(at: touchPoint)
@@ -161,11 +164,12 @@ private extension CameraMetalView {
 // MARK: Camera Orientation
 extension CameraMetalView {
     func beginCameraOrientationAnimation(if shouldAnimate: Bool) async { if shouldAnimate {
+        guard let parent else { return }
         parent.cameraView.alpha = 0
         await Task.sleep(seconds: 0.1)
     }}
     func finishCameraOrientationAnimation(if shouldAnimate: Bool) { if shouldAnimate {
-        UIView.animate(withDuration: 0.2, delay: 0.1) { self.parent.cameraView.alpha = 1 }
+        UIView.animate(withDuration: 0.2, delay: 0.1) { self.parent?.cameraView.alpha = 1 }
     }}
 }
 
@@ -177,8 +181,8 @@ extension CameraMetalView {
 // MARK: Capture
 extension CameraMetalView: @preconcurrency AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        guard let cvImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-
+        guard let cvImageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer), parent != nil else { return }
+        
         let currentFrame = captureCurrentFrame(cvImageBuffer)
         let currentFrameWithFiltersApplied = applyingFiltersToCurrentFrame(currentFrame)
         redrawCameraView(currentFrameWithFiltersApplied)

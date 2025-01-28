@@ -11,7 +11,7 @@
 
 import AVKit
 
-struct CameraManagerAttributes {
+struct CameraManagerAttributes: Equatable {
     var capturedMedia: MCameraMedia? = nil
     var error: MCameraError? = nil
 

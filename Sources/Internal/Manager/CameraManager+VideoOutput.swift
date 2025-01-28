@@ -14,7 +14,7 @@ import SwiftUI
 import MijickTimer
 
 @MainActor class CameraManagerVideoOutput: NSObject {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
     private(set) var output: AVCaptureMovieFileOutput = .init()
     private(set) var timer: MTimer = .init(.camera)
     private(set) var recordingTime: MTime = .zero
@@ -53,7 +53,8 @@ extension CameraManagerVideoOutput {
 private extension CameraManagerVideoOutput {
     func startRecording() {
         guard let url = prepareUrlForVideoRecording() else { return }
-
+        guard let parent else { return }
+        
         configureOutput()
         storeLastFrame()
         output.startRecording(to: url, recordingDelegate: self)
@@ -80,9 +81,9 @@ private extension CameraManagerVideoOutput {
         firstRecordedFrame = UIImage(cgImage: cgImage, scale: 1.0, orientation: parent.attributes.deviceOrientation.toImageOrientation())
     }
     func startRecordingTimer() { try? timer
-        .publish(every: 1) { [self] in
-            recordingTime = $0
-            parent.objectWillChange.send()
+        .publish(every: 1) { [weak self] in
+            self?.recordingTime = $0
+            self?.parent?.objectWillChange.send()
         }
         .start()
     }
@@ -98,6 +99,7 @@ private extension CameraManagerVideoOutput {
 }
 private extension CameraManagerVideoOutput {
     func presentLastFrame() {
+        guard let parent else { return }
         let firstRecordedFrame = MCameraMedia(data: firstRecordedFrame)
         parent.setCapturedMedia(firstRecordedFrame)
     }
@@ -106,6 +108,7 @@ private extension CameraManagerVideoOutput {
 // MARK: Receive Data
 extension CameraManagerVideoOutput: @preconcurrency AVCaptureFileOutputRecordingDelegate {
     func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: (any Error)?) { Task {
+        guard let parent else { return }
         let videoURL = try await prepareVideo(outputFileURL: outputFileURL, cameraFilters: parent.attributes.cameraFilters)
         let capturedVideo = MCameraMedia(data: videoURL)
 

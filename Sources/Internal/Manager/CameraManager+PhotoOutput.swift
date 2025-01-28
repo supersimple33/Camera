@@ -12,7 +12,7 @@
 import AVKit
 
 @MainActor class CameraManagerPhotoOutput: NSObject {
-    private(set) var parent: CameraManager!
+    private(set) weak var parent: CameraManager!
     private(set) var output: AVCapturePhotoOutput = .init()
 }
 
@@ -32,6 +32,7 @@ extension CameraManagerPhotoOutput {
 // MARK: Capture
 extension CameraManagerPhotoOutput {
     func capture() {
+        guard let parent else { return }
         let settings = getPhotoOutputSettings()
 
         configureOutput()
@@ -57,8 +58,10 @@ private extension CameraManagerPhotoOutput {
 extension CameraManagerPhotoOutput: @preconcurrency AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: (any Error)?) {
         guard let imageData = photo.fileDataRepresentation(),
-              let ciImage = CIImage(data: imageData)
+              let ciImage = CIImage(data: imageData),
+              let parent
         else { return }
+        
 
         let capturedCIImage = prepareCIImage(ciImage, parent.attributes.cameraFilters)
         let capturedCGImage = prepareCGImage(capturedCIImage)
