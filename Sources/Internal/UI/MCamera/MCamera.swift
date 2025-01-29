@@ -91,17 +91,15 @@ import SwiftUI
  ```
  */
 public struct MCamera: View {
-    @State var attributes: CameraManagerAttributes = .init()
     @StateObject var manager: CameraManager
     @Namespace var namespace
+    var attributes: CameraManagerAttributes = .init()
     var config: Config = .init()
-
     
     public var body: some View { if config.isCameraConfigured {
         ZStack(content: createContent)
             .onDisappear(perform: onDisappear)
             .onChange(of: manager.attributes.capturedMedia, perform: onCapturedMediaChange)
-            .onChange(of: attributes, perform: attributesChanged)
     }}
 }
 private extension MCamera {
@@ -125,9 +123,6 @@ private extension MCamera {
             .erased()
             .onAppear(perform: onCameraAppear)
             .onDisappear(perform: onCameraDisappear)
-    }
-    func attributesChanged(_ attributes: CameraManagerAttributes) {
-        manager.attributes = attributes
     }
 }
 
@@ -162,6 +157,7 @@ private extension MCamera {
 private extension MCamera {
     func onCameraAppear() { Task {
         do {
+            manager.attributes = attributes
             try await manager.setup()
             lockScreenOrientation(.portrait)
         } catch { print("(MijickCamera) ERROR DURING SETUP: \(error)") }

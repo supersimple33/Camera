@@ -41,3 +41,14 @@ extension Int {
     static var blurViewTag: Int { 2137 }
     static var focusIndicatorTag: Int { 29 }
 }
+
+
+// MARK: Update and return
+extension View {
+    @inlinable
+    func then(_ body: (inout Self) -> Void) -> Self {
+        var result = self
+        body(&result)
+        return result
+    }
+}

@@ -134,118 +134,118 @@ public extension MCamera {
 public extension MCamera {
     /**
      Changes the initial camera output type.
-
+     
      For available options, please refer to the ``CameraOutputType`` documentation.
      */
-    func setCameraOutputType(_ cameraOutputType: CameraOutputType) -> Self { attributes.outputType = cameraOutputType; return self }
-
+    func setCameraOutputType(_ cameraOutputType: CameraOutputType) -> Self { then { $0.attributes.outputType = cameraOutputType }}
+    
     /**
      Changes the initial camera position.
-
+     
      For available options, please refer to the ``CameraPosition`` documentation.
-
+     
      - note: If the selected camera position is not available, the camera will not be changed.
      */
-    func setCameraPosition(_ cameraPosition: CameraPosition) -> Self { attributes.cameraPosition = cameraPosition; return self }
-
+    func setCameraPosition(_ cameraPosition: CameraPosition) -> Self { then { $0.attributes.cameraPosition = cameraPosition }}
+    
     /**
      Definies whether the audio source is available.
-
+     
      If disabled, the camera will not record audio, and will not ask for permission to access the microphone.
      */
-    func setAudioAvailability(_ isAvailable: Bool) -> Self { attributes.isAudioSourceAvailable = isAvailable; return self }
-
+    func setAudioAvailability(_ isAvailable: Bool) -> Self { then { $0.attributes.isAudioSourceAvailable = isAvailable }}
+    
     /**
      Changes the initial camera zoom level.
-
+     
      - note: If the zoom factor is out of bounds, it will be set to the closest available value.
      */
-    func setZoomFactor(_ zoomFactor: CGFloat) -> Self { attributes.zoomFactor = zoomFactor; return self }
-
+    func setZoomFactor(_ zoomFactor: CGFloat) -> Self { then { $0.attributes.zoomFactor = zoomFactor }}
+    
     /**
      Changes the initial camera flash mode.
-
+     
      For available options, please refer to the ``CameraFlashMode`` documentation.
-
+     
      - note: If the selected flash mode is not available, the flash mode will not be changed.
      */
-    func setFlashMode(_ flashMode: CameraFlashMode) -> Self { attributes.flashMode = flashMode; return self }
-
+    func setFlashMode(_ flashMode: CameraFlashMode) -> Self { then { $0.attributes.flashMode = flashMode }}
+    
     /**
      Changes the initial light (torch / flashlight) mode.
-
+     
      For available options, please refer to the ``CameraLightMode`` documentation.
-
+     
      - note: If the selected light mode is not available, the light mode will not be changed.
      */
-    func setLightMode(_ lightMode: CameraLightMode) -> Self { attributes.lightMode = lightMode; return self }
-
+    func setLightMode(_ lightMode: CameraLightMode) -> Self { then { $0.attributes.lightMode = lightMode }}
+    
     /**
      Changes the initial camera resolution.
-
+     
      - important: Changing the resolution may affect the maximum frame rate that can be set.
      */
-    func setResolution(_ resolution: AVCaptureSession.Preset) -> Self { attributes.resolution = resolution; return self }
-
+    func setResolution(_ resolution: AVCaptureSession.Preset) -> Self { then { $0.attributes.resolution = resolution }}
+    
     /**
      Changes the initial camera frame rate.
-
+     
      - note: Depending on the resolution of the camera and the current specifications of the device, there are some restrictions on the frame rate that can be set.
      If you set a frame rate that exceeds the camera's capabilities, the library will automatically set the closest possible value and show you which value has been set (``MCameraScreen/frameRate``).
      */
-    func setFrameRate(_ frameRate: Int32) -> Self { attributes.frameRate = frameRate; return self }
-
+    func setFrameRate(_ frameRate: Int32) -> Self { then { $0.attributes.frameRate = frameRate }}
+    
     /**
      Changes the initial camera exposure duration.
-
+     
      - note: If the exposure duration is out of bounds, it will be set to the closest available value.
      */
-    func setCameraExposureDuration(_ duration: CMTime) -> Self { attributes.cameraExposure.duration = duration; return self }
-
+    func setCameraExposureDuration(_ duration: CMTime) -> Self { then { $0.attributes.cameraExposure.duration = duration }}
+    
     /**
      Changes the initial camera target bias.
-
+     
      - note: If the target bias is out of bounds, it will be set to the closest available value.
      */
-    func setCameraTargetBias(_ targetBias: Float) -> Self { attributes.cameraExposure.targetBias = targetBias; return self }
-
+    func setCameraTargetBias(_ targetBias: Float) -> Self { then { $0.attributes.cameraExposure.targetBias = targetBias }}
+    
     /**
      Changes the initial camera ISO.
-
+     
      - note: If the ISO is out of bounds, it will be set to the closest available value.
      */
-    func setCameraISO(_ iso: Float) -> Self { attributes.cameraExposure.iso = iso; return self }
-
+    func setCameraISO(_ iso: Float) -> Self { then { $0.attributes.cameraExposure.iso = iso }}
+    
     /**
      Changes the initial camera exposure mode.
-
+     
      - note: If the exposure mode is not supported, the exposure mode will not be changed.
      */
-    func setCameraExposureMode(_ exposureMode: AVCaptureDevice.ExposureMode) -> Self { attributes.cameraExposure.mode = exposureMode; return self }
-
+    func setCameraExposureMode(_ exposureMode: AVCaptureDevice.ExposureMode) -> Self { then { $0.attributes.cameraExposure.mode = exposureMode }}
+    
     /**
      Changes the initial camera HDR mode.
-
+     
      For available options, please refer to the ``CameraHDRMode`` documentation.
      */
-    func setCameraHDRMode(_ hdrMode: CameraHDRMode) -> Self { attributes.hdrMode = hdrMode; return self }
-
+    func setCameraHDRMode(_ hdrMode: CameraHDRMode) -> Self { then { $0.attributes.hdrMode = hdrMode }}
+    
     /**
      Changes the initial camera filters.
-
+     
      - important: Setting multiple filters simultaneously can affect the performance of the camera.
      */
-    func setCameraFilters(_ filters: [CIFilter]) -> Self { attributes.cameraFilters = filters; return self }
+    func setCameraFilters(_ filters: [CIFilter]) -> Self { then { $0.attributes.cameraFilters = filters }}
 
     /**
      Changes the initial mirror output setting.
      */
-    func setMirrorOutput(_ shouldMirror: Bool) -> Self { attributes.mirrorOutput = shouldMirror; return self }
+    func setMirrorOutput(_ shouldMirror: Bool) -> Self { then { $0.attributes.mirrorOutput = shouldMirror }}
 
     /**
      Changes the initial grid visibility setting.
      */
-    func setGridVisibility(_ shouldShowGrid: Bool) -> Self { attributes.isGridVisible = shouldShowGrid; return self }
+    func setGridVisibility(_ shouldShowGrid: Bool) -> Self { then { $0.attributes.isGridVisible = shouldShowGrid }}
 
     /**
      Changes the shape of the focus indicator visible when touching anywhere on the camera screen.
@@ -290,7 +290,7 @@ public extension MCamera {
      }
      ```
      */
-    func setCloseMCameraAction(_ action: @escaping () -> ()) -> Self { config.closeMCameraAction = action; return self }
+    func setCloseMCameraAction(_ action: @escaping () -> ()) -> Self { then { $0.config.closeMCameraAction = action }}
 
     /**
      Defines action that is called when an image is captured.
@@ -317,7 +317,7 @@ public extension MCamera {
      }
      ```
      */
-    func onImageCaptured(_ action: @escaping (UIImage, MCamera.Controller) -> ()) -> Self { config.imageCapturedAction = action; return self }
+    func onImageCaptured(_ action: @escaping (UIImage, MCamera.Controller) -> ()) -> Self { then { $0.config.imageCapturedAction = action }}
 
     /**
      Defines action that is called when a video is captured.
@@ -344,7 +344,7 @@ public extension MCamera {
      }
      ```
      */
-    func onVideoCaptured(_ action: @escaping (URL, MCamera.Controller) -> ()) -> Self { config.videoCapturedAction = action; return self }
+    func onVideoCaptured(_ action: @escaping (URL, MCamera.Controller) -> ()) -> Self { then { $0.config.videoCapturedAction = action }}
 }
 
 // MARK: Others
@@ -384,7 +384,10 @@ public extension MCamera {
      }
      ```
      */
-    func lockCameraInPortraitOrientation(_ appDelegate: MApplicationDelegate.Type) -> Self { config.appDelegate = appDelegate; attributes.orientationLocked = true; return self }
+    func lockCameraInPortraitOrientation(_ appDelegate: MApplicationDelegate.Type) -> Self { then {
+        $0.config.appDelegate = appDelegate
+        $0.attributes.orientationLocked = true
+    }}
 
     /**
      Starts the camera session.
