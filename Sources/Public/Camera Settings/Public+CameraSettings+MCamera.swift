@@ -250,17 +250,17 @@ public extension MCamera {
     /**
      Changes the shape of the focus indicator visible when touching anywhere on the camera screen.
      */
-    func setFocusImage(_ image: UIImage) -> Self { manager.cameraMetalView.focusIndicator.image = image; return self }
+    func setFocusImage(_ image: UIImage) -> Self { then { $0.attributes.focusIndicatorImage = image }}
 
     /**
      Changes the color of the focus indicator visible when touching anywhere on the camera screen.
      */
-    func setFocusImageColor(_ color: UIColor) -> Self { manager.cameraMetalView.focusIndicator.tintColor = color; return self }
+    func setFocusImageColor(_ color: UIColor) -> Self { then { $0.attributes.focusTintColor = color }}
 
     /**
      Changes the size of the focus indicator visible when touching anywhere on the camera.
      */
-    func setFocusImageSize(_ size: CGFloat) -> Self { manager.cameraMetalView.focusIndicator.size = size; return self }
+    func setFocusImageSize(_ size: CGFloat) -> Self { then { $0.attributes.focusIndicatorSize = size }}
 }
 
 // MARK: Actions

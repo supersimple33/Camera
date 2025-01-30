@@ -17,6 +17,15 @@ import SwiftUI
     var size: CGFloat = 96
 }
 
+// MARK: Setup
+extension CameraFocusIndicatorView {
+    func setup(_ parent: CameraManager) {
+        image = parent.attributes.focusIndicatorImage
+        tintColor = parent.attributes.focusTintColor
+        size = parent.attributes.focusIndicatorSize
+    }
+}
+
 // MARK: Create
 extension CameraFocusIndicatorView {
     func create(at touchPoint: CGPoint) -> UIImageView {

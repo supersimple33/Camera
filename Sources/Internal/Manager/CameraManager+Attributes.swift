@@ -33,4 +33,8 @@ struct CameraManagerAttributes: Equatable {
     var frameOrientation: CGImagePropertyOrientation = .right
     var orientationLocked: Bool = false
     var userBlockedScreenRotation: Bool = false
+    
+    var focusIndicatorImage: UIImage = .init(resource: .mijickIconCrosshair)
+    var focusTintColor: UIColor = .init(resource: .mijickBackgroundYellow)
+    var focusIndicatorSize: CGFloat = 96
 }
