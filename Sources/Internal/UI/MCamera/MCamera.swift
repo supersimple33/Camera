@@ -100,6 +100,7 @@ public struct MCamera: View {
         ZStack(content: createContent)
             .onDisappear(perform: onDisappear)
             .onChange(of: manager.attributes.capturedMedia, perform: onCapturedMediaChange)
+            .onAppear { manager.attributes = attributes }
     }}
 }
 private extension MCamera {
@@ -157,7 +158,6 @@ private extension MCamera {
 private extension MCamera {
     func onCameraAppear() { Task {
         do {
-            manager.attributes = attributes
             try await manager.setup()
             lockScreenOrientation(.portrait)
         } catch { print("(MijickCamera) ERROR DURING SETUP: \(error)") }
