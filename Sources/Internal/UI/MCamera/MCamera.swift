@@ -93,14 +93,14 @@ import SwiftUI
 public struct MCamera: View {
     @StateObject var manager: CameraManager
     @Namespace var namespace
-    var attributes: CameraManagerAttributes = .init()
+    var configAttributes: CameraManagerAttributes = .init()
     var config: Config = .init()
     
     public var body: some View { if config.isCameraConfigured {
         ZStack(content: createContent)
             .onDisappear(perform: onDisappear)
+            .onAppear(perform: onAppear)
             .onChange(of: manager.attributes.capturedMedia, perform: onCapturedMediaChange)
-            .onAppear { manager.attributes = attributes }
     }}
 }
 private extension MCamera {
@@ -137,6 +137,9 @@ private extension MCamera {
     func onDisappear() {
         lockScreenOrientation(nil)
         manager.cancel()
+    }
+    func onAppear() {
+        manager.attributes = configAttributes
     }
     func onCapturedMediaChange(_ capturedMedia: MCameraMedia?) {
         guard let capturedMedia, config.capturedMediaScreen == nil else { return }
