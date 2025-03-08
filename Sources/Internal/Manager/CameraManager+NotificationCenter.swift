@@ -42,7 +42,6 @@ private extension CameraManagerNotificationCenter {
         guard !isActive else { return }
         guard !isSessionRunning else { return }
         isActive = true
-        await Task.sleep(seconds: 0.3) // need a time to make ui ready to read new state
         try await parent?.setup()
     }}
     @objc func handleAppEnterBackground() {
