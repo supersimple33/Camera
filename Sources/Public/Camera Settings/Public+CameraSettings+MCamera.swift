@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+CameraSettings+MCamera.swift of MijickCamera
 //
@@ -393,3 +394,4 @@ public extension MCamera {
      */
     func startSession() -> some View { config.isCameraConfigured = true; return self }
 }
+#endif

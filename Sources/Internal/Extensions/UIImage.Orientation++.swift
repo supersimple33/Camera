@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  UIImage.Orientation++.swift of MijickCamera
 //
@@ -24,3 +25,4 @@ extension UIImage.Orientation {
         case .upMirrored: self = .upMirrored
     }}
 }
+#endif

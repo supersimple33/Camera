@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CIImage++.swift of MijickCamera
 //
@@ -22,3 +23,4 @@ extension CIImage {
         return ciImage
     }
 }
+#endif

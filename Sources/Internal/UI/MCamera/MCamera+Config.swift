@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  MCamera+Config.swift of MijickCamera
 //
@@ -26,3 +27,4 @@ extension MCamera { @MainActor class Config {
     var appDelegate: MApplicationDelegate.Type? = nil
     var isCameraConfigured: Bool = false
 }}
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraManager+NotificationCenter.swift of MijickCamera
 //
@@ -35,3 +36,4 @@ extension CameraManagerNotificationCenter {
         NotificationCenter.default.removeObserver(self, name: .AVCaptureSessionWasInterrupted, object: parent?.captureSession)
     }
 }
+#endif

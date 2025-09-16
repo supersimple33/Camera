@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+UI+MCapturedMediaScreen.swift of MijickCamera
 //
@@ -80,3 +81,4 @@ public protocol MCapturedMediaScreen: View {
     var retakeAction: () -> () { get }
     var acceptMediaAction: () -> () { get }
 }
+#endif

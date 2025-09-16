@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultScreen+CloseButton.swift of MijickCamera
 //
@@ -27,3 +28,4 @@ private extension CloseButton {
             .foregroundColor(Color(.mijickBackgroundInverted))
     }
 }
+#endif

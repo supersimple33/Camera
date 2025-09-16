@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Animation++.swift of MijickCamera
 //
@@ -18,3 +19,4 @@ extension Animation {
 extension Animation {
     static var duration: CGFloat { 0.3 }
 }
+#endif

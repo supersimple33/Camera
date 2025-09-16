@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureDevice+MockCaptureDevice.swift of MijickCamera
 //
@@ -60,3 +61,4 @@ class MockCaptureDevice: NSObject, CaptureDevice {
     private var _exposureTargetBias: Float = 0
     private var _iso: Float = 0
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CIFilter++.swift of MijickCamera
 //
@@ -12,3 +13,4 @@
 import AVKit
 
 extension CIFilter: @unchecked @retroactive Sendable {}
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraScreen+CameraOutputSwitch.swift of MijickCamera
 //
@@ -77,3 +78,4 @@ private extension Button {
         case false: .init(.mijickTextTertiary)
     }}
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+UI+MCameraScreen.swift of MijickCamera
 //
@@ -231,3 +232,4 @@ public extension MCameraScreen {
     var isOrientationLocked: Bool { cameraManager.attributes.orientationLocked || cameraManager.attributes.userBlockedScreenRotation }
     var deviceOrientation: AVCaptureVideoOrientation { cameraManager.attributes.deviceOrientation }
 }
+#endif

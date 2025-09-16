@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  MCamera.swift of MijickCamera
 //
@@ -179,3 +180,4 @@ private extension MCamera {
         notifyUserOfMediaCaptured(capturedMedia)
     }
 }
+#endif

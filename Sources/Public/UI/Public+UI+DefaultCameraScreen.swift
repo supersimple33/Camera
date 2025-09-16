@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+UI+DefaultCameraScreen.swift of MijickCamera
 //
@@ -29,3 +30,4 @@ public extension DefaultCameraScreen {
     func gridButtonAllowed(_ value: Bool) -> Self { config.gridButtonAllowed = value; return self }
     func closeButtonAllowed(_ value: Bool) -> Self { config.closeButtonAllowed = value; return self }
 }
+#endif

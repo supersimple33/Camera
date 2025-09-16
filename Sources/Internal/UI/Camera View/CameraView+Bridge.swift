@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraView+Bridge.swift of MijickCamera
 //
@@ -66,3 +67,4 @@ extension CameraBridgeView.Coordinator {
         } catch {}
     }}
 }
+#endif

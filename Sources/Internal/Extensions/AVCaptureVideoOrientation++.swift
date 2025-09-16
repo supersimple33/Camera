@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  AVCaptureVideoOrientation++.swift of MijickCamera
 //
@@ -44,3 +45,4 @@ extension AVCaptureVideoOrientation {
         default: .portrait
     }}
 }
+#endif

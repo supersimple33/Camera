@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  MCameraMedia.swift of MijickCamera
 //
@@ -26,3 +27,4 @@ public struct MCameraMedia: Sendable {
 extension MCameraMedia: Equatable {
     public static func == (lhs: MCameraMedia, rhs: MCameraMedia) -> Bool { lhs.image == rhs.image && lhs.video == rhs.video }
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureSession+MockCaptureSession.swift of MijickCamera
 //
@@ -55,3 +56,4 @@ extension MockCaptureSession {
         _outputs.append(output)
     }
 }
+#endif

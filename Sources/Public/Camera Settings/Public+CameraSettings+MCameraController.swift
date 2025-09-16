@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+CameraSettings+MCameraController.swift of MijickCamera
 //
@@ -25,3 +26,4 @@ public extension MCamera.Controller {
      */
     func reopenCameraScreen() { mCamera.manager.setCapturedMedia(nil) }
 }
+#endif

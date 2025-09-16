@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  AVVideoComposition++.swift of MijickCamera
 //
@@ -18,3 +19,4 @@ extension AVVideoComposition {
         return AVVideoComposition(asset: asset, applyingCIFiltersWithHandler: applyFiltersAction)
     }
 }
+#endif

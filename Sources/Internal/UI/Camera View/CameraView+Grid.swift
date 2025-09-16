@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraView+Grid.swift of MijickCamera
 //
@@ -79,3 +80,4 @@ private extension CameraGridView {
         return shapeLayer
     }
 }
+#endif

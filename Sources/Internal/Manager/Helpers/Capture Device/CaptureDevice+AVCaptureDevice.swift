@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureDevice+AVCaptureDevice.swift of MijickCamera
 //
@@ -39,3 +40,4 @@ extension AVCaptureDevice {
         }
     }
 }
+#endif

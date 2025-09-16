@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraManager+Attributes.swift of MijickCamera
 //
@@ -34,3 +35,4 @@ struct CameraManagerAttributes {
     var orientationLocked: Bool = false
     var userBlockedScreenRotation: Bool = false
 }
+#endif

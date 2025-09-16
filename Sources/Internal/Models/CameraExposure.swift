@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraExposure.swift of MijickCamera
 //
@@ -17,3 +18,4 @@ struct CameraExposure {
     var iso: Float = 0
     var mode: AVCaptureDevice.ExposureMode = .autoExpose
 }
+#endif

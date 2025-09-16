@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraManager+PermissionsManager.swift of MijickCamera
 //
@@ -44,3 +45,4 @@ private extension CameraManagerPermissionsManager {
         default: fatalError()
     }}
 }
+#endif

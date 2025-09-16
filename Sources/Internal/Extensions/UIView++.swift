@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  UIView++.swift of MijickCamera
 //
@@ -41,3 +42,4 @@ extension Int {
     static var blurViewTag: Int { 2137 }
     static var focusIndicatorTag: Int { 29 }
 }
+#endif

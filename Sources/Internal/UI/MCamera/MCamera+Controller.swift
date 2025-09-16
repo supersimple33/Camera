@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  MCamera+Controller.swift of MijickCamera
 //
@@ -14,3 +15,4 @@ import Foundation
 extension MCamera { @MainActor public struct Controller {
     let mCamera: MCamera
 }}
+#endif

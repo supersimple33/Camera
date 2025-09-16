@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureDeviceInput.swift of MijickCamera
 //
@@ -19,3 +20,4 @@ protocol CaptureDeviceInput: NSObject {
     // MARK: Methods
     static func get(mediaType: AVMediaType, position: AVCaptureDevice.Position?) -> Self?
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCapturedMediaScreen.swift of MijickCamera
 //
@@ -88,3 +89,4 @@ private extension DefaultCapturedMediaScreen {
         player.play()
     }
 }
+#endif

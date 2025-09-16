@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraManager+PhotoOutput.swift of MijickCamera
 //
@@ -101,3 +102,4 @@ private extension CameraManagerPhotoOutput {
         }
     }
 }
+#endif

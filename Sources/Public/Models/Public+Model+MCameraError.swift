@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+Model+MCameraError.swift of MijickCamera
 //
@@ -15,3 +16,4 @@ public enum MCameraError: Error {
     case microphonePermissionsNotGranted, cameraPermissionsNotGranted
     case cannotSetupInput, cannotSetupOutput, cannotSetupMetalDevice
 }
+#endif

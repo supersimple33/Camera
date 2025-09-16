@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+UI+MCameraErrorScreen.swift of MijickCamera
 //
@@ -52,3 +53,4 @@ public extension MCameraErrorScreen {
         UIApplication.shared.open(url)
     }}
 }
+#endif

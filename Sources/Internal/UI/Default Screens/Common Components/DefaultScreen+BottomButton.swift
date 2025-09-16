@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultScreen+BottomButton.swift of MijickCamera
 //
@@ -35,3 +36,4 @@ private extension BottomButton {
             .mask(Circle())
     }
 }
+#endif

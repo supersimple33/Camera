@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureDeviceInput+MockDeviceInput.swift of MijickCamera
 //
@@ -24,3 +25,4 @@ extension MockDeviceInput {
 extension MockDeviceInput {
     static func == (lhs: MockDeviceInput, rhs: MockDeviceInput) -> Bool { lhs.device.uniqueID == rhs.device.uniqueID }
 }
+#endif

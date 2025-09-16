@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraUtilities++.swift of MijickCamera
 //
@@ -19,3 +20,4 @@ extension CameraFlashMode {
         case .auto: .auto
     }}
 }
+#endif

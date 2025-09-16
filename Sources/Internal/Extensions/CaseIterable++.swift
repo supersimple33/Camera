@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaseIterable++.swift of MijickCamera
 //
@@ -20,3 +21,4 @@ extension CaseIterable where Self: Equatable {
         return Self.allCases[nextIndex == Self.allCases.endIndex ? Self.allCases.startIndex : nextIndex]
     }
 }
+#endif

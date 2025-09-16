@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraScreen+TopBar.swift of MijickCamera
 //
@@ -114,3 +115,4 @@ private extension DefaultCameraScreen.TopBar {
     var isFlipOutputButtonActive: Bool { parent.config.flipButtonAllowed && parent.cameraPosition == .front }
     var isFlashButtonActive: Bool { parent.config.flashButtonAllowed && parent.hasFlash && parent.cameraOutputType == .photo }
 }
+#endif

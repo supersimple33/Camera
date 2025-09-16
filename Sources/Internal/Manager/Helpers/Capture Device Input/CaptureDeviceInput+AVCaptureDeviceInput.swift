@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureDeviceInput+AVCaptureDeviceInput.swift of MijickCamera
 //
@@ -24,3 +25,4 @@ extension AVCaptureDeviceInput: CaptureDeviceInput {
         return deviceInput
     }
 }
+#endif

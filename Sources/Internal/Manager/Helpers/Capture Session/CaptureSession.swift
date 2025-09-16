@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureSession.swift of MijickCamera
 //
@@ -25,3 +26,4 @@ protocol CaptureSession: Sendable {
     func remove(input: (any CaptureDeviceInput)?)
     func add(output: AVCaptureOutput?) throws(MCameraError)
 }
+#endif

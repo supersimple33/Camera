@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraView+Metal.swift of MijickCamera
 //
@@ -228,3 +229,4 @@ private extension CameraMetalView {
         commandBuffer.commit()
     }
 }
+#endif

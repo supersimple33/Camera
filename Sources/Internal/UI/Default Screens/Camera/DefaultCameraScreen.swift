@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraScreen.swift of MijickCamera
 //
@@ -52,3 +53,4 @@ extension DefaultCameraScreen {
         case false: .zero
     }}
 }
+#endif

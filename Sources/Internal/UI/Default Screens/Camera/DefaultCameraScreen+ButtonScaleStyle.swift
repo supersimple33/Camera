@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraScreen+ButtonScaleStyle.swift of MijickCamera
 //
@@ -17,3 +18,4 @@ struct ButtonScaleStyle: ButtonStyle {
         .scaleEffect(configuration.isPressed ? 0.96 : 1)
     }
 }
+#endif

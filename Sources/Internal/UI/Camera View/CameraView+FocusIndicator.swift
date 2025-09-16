@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraView+FocusIndicator.swift of MijickCamera
 //
@@ -31,3 +32,4 @@ extension CameraFocusIndicatorView {
         return focusIndicator
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraManager.swift of MijickCamera
 //
@@ -425,3 +426,4 @@ extension CameraManager {
         case .back: backCameraInput
     }}
 }
+#endif

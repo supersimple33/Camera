@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  FileManager++.swift of MijickCamera
 //
@@ -33,3 +34,4 @@ private extension FileManager {
 private extension FileManager {
     static var videoPath: String { "mijick-camera-video-output.mp4" }
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraErrorScreen.swift of MijickCamera
 //
@@ -77,3 +78,4 @@ private extension DefaultCameraErrorScreen {
     }}
     var openSettingsButton: String { NSLocalizedString("Open Settings", comment: "") }
 }
+#endif

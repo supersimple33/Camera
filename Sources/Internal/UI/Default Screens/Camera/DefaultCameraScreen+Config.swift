@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraScreen+Config.swift of MijickCamera
 //
@@ -21,3 +22,4 @@ extension DefaultCameraScreen { class Config {
     var gridButtonAllowed: Bool = true
     var closeButtonAllowed: Bool = true
 }}
+#endif

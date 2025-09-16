@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+Model+CameraUtilities.swift of MijickCamera
 //
@@ -42,3 +43,4 @@ public enum CameraHDRMode: CaseIterable {
     case on
     case auto
 }
+#endif

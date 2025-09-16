@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+CameraSettings+MApplicationDelegate.swift of MijickCamera
 //
@@ -51,3 +52,4 @@ public protocol MApplicationDelegate: UIApplicationDelegate {
 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask
 }
+#endif

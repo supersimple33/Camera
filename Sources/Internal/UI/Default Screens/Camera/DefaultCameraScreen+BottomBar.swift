@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraScreen+BottomBar.swift of MijickCamera
 //
@@ -95,3 +96,4 @@ private extension DefaultCameraScreen.BottomBar {
     var isCaptureButtonActive: Bool { parent.config.captureButtonAllowed && parent.cameraManager.captureSession.isRunning }
     var isChangeCameraPositionButtonActive: Bool { parent.config.cameraPositionButtonAllowed && parent.cameraManager.captureSession.isRunning && !parent.isRecording }
 }
+#endif

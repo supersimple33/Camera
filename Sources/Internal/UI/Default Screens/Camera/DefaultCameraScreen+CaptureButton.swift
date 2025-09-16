@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  DefaultCameraScreen+CaptureButton.swift of MijickCamera
 //
@@ -53,3 +54,4 @@ private extension DefaultCameraScreen.CaptureButton {
         case false: 4
     }}
 }
+#endif

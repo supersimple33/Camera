@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Public+Model+MCameraMedia.swift of MijickCamera
 //
@@ -23,3 +24,4 @@ public extension MCameraMedia {
      */
     func getVideo() -> URL? { video }
 }
+#endif

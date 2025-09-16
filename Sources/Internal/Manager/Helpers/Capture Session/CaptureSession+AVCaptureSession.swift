@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureSession+AVCaptureSession.swift of MijickCamera
 //
@@ -43,3 +44,4 @@ extension AVCaptureSession {
         if canAddOutput(output) { addOutput(output) }
     }
 }
+#endif

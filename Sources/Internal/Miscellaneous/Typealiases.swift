@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  Typealiases.swift of MijickCamera
 //
@@ -14,3 +15,4 @@ import SwiftUI
 public typealias CameraScreenBuilder = @MainActor (CameraManager, Namespace.ID, _ closeMCameraAction: @escaping () -> ()) -> any MCameraScreen
 public typealias CapturedMediaScreenBuilder = @MainActor (MCameraMedia, Namespace.ID, _ retakeAction: @escaping () -> (), _ acceptMediaAction: @escaping () -> ()) -> any MCapturedMediaScreen
 public typealias ErrorScreenBuilder = @MainActor (MCameraError, _ closeMCameraAction: @escaping () -> ()) -> any MCameraErrorScreen
+#endif

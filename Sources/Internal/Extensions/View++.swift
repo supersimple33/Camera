@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  View++.swift of MijickCamera
 //
@@ -15,3 +16,4 @@ import SwiftUI
 extension View {
     func erased() -> AnyView { .init(self) }
 }
+#endif

@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraManager+VideoOutput.swift of MijickCamera
 //
@@ -156,3 +157,4 @@ private extension CameraManagerVideoOutput {
 fileprivate extension MTimerID {
     static let camera: MTimerID = .init(rawValue: "mijick-camera")
 }
+#endif

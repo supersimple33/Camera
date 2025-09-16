@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CaptureDevice.swift of MijickCamera
 //
@@ -129,3 +130,4 @@ extension CaptureDevice {
         setExposureTargetBias(bias, completionHandler: nil)
     }
 }
+#endif

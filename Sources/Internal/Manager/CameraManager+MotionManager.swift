@@ -1,3 +1,4 @@
+#if os(iOS)
 //
 //  CameraManager+MotionManager.swift of MijickCamera
 //
@@ -106,3 +107,4 @@ extension CameraManagerMotionManager {
         manager.stopAccelerometerUpdates()
     }
 }
+#endif
