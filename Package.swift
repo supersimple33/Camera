@@ -6,7 +6,8 @@ import PackageDescription
 let package = Package(
     name: "MijickCamera",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v14),
+        .macOS("99")
     ],
     products: [
         .library(name: "MijickCamera", targets: ["MijickCamera"]),
